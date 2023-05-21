@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "Koloni.h"
 
 Koloni* newKoloniler(char* str, int* KoloniCount) {
     int count = koloniCountGetir(str);
-    Koloni* koloniler = (Koloni*)malloc(count * sizeof(Koloni));
+    Koloni* koloniler = (Koloni*)malloc(count * sizeof(struct Koloni));
     char sembol = 'A';
 
     char* token = strtok(str, " ");
@@ -14,6 +15,8 @@ Koloni* newKoloniler(char* str, int* KoloniCount) {
         koloniler[i].sembol = sembol++;
         koloniler[i].guc = 0;
         koloniler[i].destroyColony = &destroyColony;
+         koloniler[i].kazanma=0;
+         koloniler[i].kaybetme=0;
         token = strtok(NULL, " ");
     }
     *KoloniCount = count;

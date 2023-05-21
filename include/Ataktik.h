@@ -1,16 +1,20 @@
 #ifndef ATAKTIK_H
 #define ATAKTIK_H
 
+
 #include "Taktik.h"
 
 typedef struct Ataktik {
     int SaldiriGucu;
     int SavunmaGucu;
+    int taktikguc;
     struct Taktik* taktik;
-    int (*Ataktik)();
-} Ataktik;
+    int (*AtaktikGucGetir)(struct Ataktik*taktik);
+    int (*Ataktik)(void);
+}Ataktik;
 
-Ataktik* newAtaktik(Taktik* taktik);
+Ataktik* newAtaktik();
 int Ataktikguc();
+int AtaktikGucGetir(Ataktik*taktik);
 
 #endif

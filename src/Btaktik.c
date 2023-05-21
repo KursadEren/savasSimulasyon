@@ -1,13 +1,15 @@
 #include "Btaktik.h"
 
-Btaktik* newBtaktik(Taktik* taktik){
+Btaktik* newBtaktik(){
     
-    Btaktik* tactic = (Btaktik*)malloc(sizeof(Btaktik));
-    
+    Taktik * tactic = newTaktik();
+   Btaktik*  this  = (Btaktik*)malloc(sizeof(struct Btaktik));
    int yuzde = BTaktik();
-   tactic->BTaktik=&BTaktik;
-   tactic->BtaktikGuc = taktik->value + ((taktik->value * yuzde)/100);
-   return tactic;
+   this->BTaktik=&BTaktik;
+   this->BtaktikGuc =(tactic->value+(((tactic->value)*BTaktik())/100));
+   this->BtaktikGucGetir = &BtaktikGucGetir;
+
+   return this;
 
 }
 
@@ -16,4 +18,7 @@ int BTaktik (){
     int svsayi = rand() % 10 + 1;
    return ((slsayi+svsayi)+(slsayi-svsayi));
 }
+int BtaktikGucGetir(Btaktik*taktik){
+    return taktik->BtaktikGuc;
+}   
 

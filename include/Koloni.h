@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include "Taktik.h"
+
 
 // Koloni yapısı
 typedef struct Koloni {
@@ -13,8 +13,8 @@ typedef struct Koloni {
     int yemekStogu;
     char sembol;
     int guc;
-    struct Taktik* taktik;
-    struct Uret* uret;
+    int kazanma;
+    int kaybetme;
 
     int (*koloniCountGetir)(char*p);
     void (*destroyColony)(struct Koloni* koloni);

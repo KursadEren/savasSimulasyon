@@ -5,13 +5,14 @@
 
 typedef struct Btaktik {
     int BtaktikGuc;
-    Taktik* taktik;
-     int (*BTaktik) (); 
-} Btaktik;
+     struct Taktik* taktik;
+     int (*BTaktik) (void); 
+     int (*BtaktikGucGetir)(struct Btaktik*taktik);
+}Btaktik;
 
-Btaktik* newBtaktik(Taktik* taktik);
+Btaktik* newBtaktik();
 
-
+int BtaktikGucGetir(Btaktik*taktik);
 int BTaktik ();
 
 #endif

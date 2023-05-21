@@ -1,13 +1,19 @@
 #include "Ataktik.h"
 
 
-Ataktik* newAtaktik(Taktik* taktik) {
-    int yuzde = Ataktikguc();
-    Ataktik* ataktik = malloc(sizeof(Ataktik));
-    ataktik->taktik->value = ataktik->taktik->value + ((ataktik->taktik->value * yuzde) / 100);
-    return ataktik;
+
+Ataktik* newAtaktik() {
+    Ataktik* this = (Ataktik*)malloc(sizeof(Ataktik));
+     Taktik * tactic = newTaktik();
+    this->taktikguc = (tactic->value+(((tactic->value)*Ataktikguc())/100));;
+    this->AtaktikGucGetir = &AtaktikGucGetir;
+    return this;
 }
 
+
+int AtaktikGucGetir(Ataktik*taktik){
+    return taktik->taktikguc;
+}   
 
 int Ataktikguc() {
     int slsayi = rand() % 10 + 1;
