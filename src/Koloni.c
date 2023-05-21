@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "Koloni.h"
 
-Koloni* newKoloniler(char* str , int *koloniCount) {
-    int count = koloniCount(str);
+Koloni* newKoloniler(char* str, int* KoloniCount) {
+    int count = koloniCountGetir(str);
     Koloni* koloniler = (Koloni*)malloc(count * sizeof(Koloni));
     char sembol = 'A';
 
@@ -14,14 +13,14 @@ Koloni* newKoloniler(char* str , int *koloniCount) {
         koloniler[i].yemekStogu = koloniler[i].populasyon * koloniler[i].populasyon;
         koloniler[i].sembol = sembol++;
         koloniler[i].guc = 0;
-        koloniler[i].koloniCount = &koloniCount;
         koloniler[i].destroyColony = &destroyColony;
         token = strtok(NULL, " ");
     }
-    *koloniCount = count;
+    *KoloniCount = count;
     return koloniler;
 }
-int koloniCount(char* str) {
+
+int koloniCountGetir(char* str) {
     int count = 0;
     int isDigit = 0;
     char* p = str;
@@ -39,8 +38,7 @@ int koloniCount(char* str) {
     return count;
 }
 
-void destroyColony(Koloni* koloni){
-    if(koloni=NULL) return ;
+void destroyColony(Koloni* koloni) {
+    if (koloni == NULL) return;
     free(koloni);
-    return;
 }

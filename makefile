@@ -12,7 +12,7 @@ compile:
 	
 
 	
-	gcc -I./include/ -o ./bin/test ./lib/Taktik.o ./lib/Btaktik.o ./lib/Buret.o ./lib/Auret.o ./lib/Ataktik.o ./lib/Koloni.o ./src/test.c
+	gcc -I./include/ -o ./bin/test ./lib/Taktik.o ./lib/Btaktik.o ./lib/Buret.o ./lib/Auret.o ./lib/Ataktik.o ./src/test.c ./lib/Koloni.o 
 
 run:
 	./bin/test

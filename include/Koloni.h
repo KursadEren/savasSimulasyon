@@ -19,14 +19,10 @@ typedef struct Koloni {
     int (*koloniCountGetir)(char*p);
     void (*destroyColony)(struct Koloni* koloni);
    
-    
-    
 } Koloni;
 
-
-Koloni* newKoloniler(char* str , int *koloniCount); 
-int koloniCountGetir(char*p);
+Koloni* newKoloniler(char* str, int* KoloniCount); 
+int koloniCountGetir(char* str);
 void destroyColony(Koloni* koloni);
-
 
 #endif

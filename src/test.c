@@ -7,12 +7,15 @@ int main() {
     fgets(input, sizeof(input), stdin);
     input[strcspn(input, "\n")] = '\0';  // Satır sonu karakterini kaldır
 
-    Koloni* koloniler = newKoloniler(input, &koloniCount);
-
+    int KoloniCount=0;
+    Koloni* koloniler = newKoloniler(input,&KoloniCount);
+    
+    
     printf("Koloniler:\n");
-    for (int i = 0; i < koloniCount; i++) {
+    for (int i = 0; i < KoloniCount ; i++) {
         printf("Koloni %c - Populasyon: %d, Yemek Stoğu: %d\n", koloniler[i].sembol, koloniler[i].populasyon, koloniler[i].yemekStogu);
     }
+    
 
     free(koloniler);
 
