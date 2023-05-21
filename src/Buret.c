@@ -8,10 +8,14 @@ Buret* ByeniUretim(){
     this->uretim = yeniUret->uretim*sayi2;
     this->uret = NULL;
     this->BtipiUretim = &BtipiUretim;
-
+    this->BtipiUretimGetir =&BtipiUretimGetir;
 }
 
 int BtipiUretim(){
     int sayi = rand() % 10 + 5;
     return sayi;
+}
+
+int BtipiUretimGetir(Buret* BGetir ){
+    return BGetir->uretim;
 }

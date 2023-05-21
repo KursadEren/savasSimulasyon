@@ -17,7 +17,9 @@ Koloni* newKoloniler(char* str, int* KoloniCount) {
         koloniler[i].destroyColony = &destroyColony;
          koloniler[i].kazanma=0;
          koloniler[i].kaybetme=0;
-         koloniler[i].TurSonuPopulasyon = &TurSonuPopulasyon;
+        
+         koloniler[i].UretilmeOran=0;
+         
         token = strtok(NULL, " ");
     }
     *KoloniCount = count;
@@ -47,6 +49,4 @@ void destroyColony(Koloni* koloni) {
     free(koloni);
 }
 
-void TurSonuPopulasyon(Koloni * koloni){
-    koloni->populasyon = koloni->populasyon + (koloni->populasyon *20 /100);
-}
+

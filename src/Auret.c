@@ -8,11 +8,15 @@ Auret* AyeniUretim(){
     this->uretim = yeniUret->uretim*sayi2;
     this->uret = NULL;
     this->AtipiUretim = &AtipiUretim;
-
+    this->AtipiUretimGetir = &AtipiUretimGetir;
 }
 
 
 int AtipiUretim(){
     int sayi = rand() % 2 + 1;
     return sayi;
+}
+
+int AtipiUretimGetir(Auret* AGetir ){
+    return AGetir->uretim;
 }

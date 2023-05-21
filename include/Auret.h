@@ -3,16 +3,15 @@
 
 #include "uret.h"
 
-typedef struct Auret{
-    
+typedef struct Auret {
     int uretim;
     struct Uret* uret;
-int (*AtipiUretim)();
+    int (*AtipiUretimGetir)(struct Auret* AGetir);
+    int (*AtipiUretim)();
 } Auret;
 
 Auret* AyeniUretim();
 int AtipiUretim();
-
-    
+int AtipiUretimGetir(struct Auret* AGetir);
 
 #endif
