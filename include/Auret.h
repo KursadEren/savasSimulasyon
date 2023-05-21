@@ -6,10 +6,12 @@
 typedef struct Auret{
     
     int uretim;
-    Uret* uret;
-
+    struct Uret* uret;
+int (*AtipiUretim)();
 } Auret;
- 
+
+Auret* AyeniUretim();
+int AtipiUretim();
 
     
 

@@ -25,27 +25,32 @@ void Savas( struct Koloni* koloni1, struct Koloni* koloni2) {
 
     if (fark > 0) {
         // taktik kazanır
-        koloni2->populasyon -= ((koloni2->populasyon*(1000/fark))/100);
-        koloni1->yemekStogu += ((koloni2->yemekStogu*fark)/100);
+        koloni2->populasyon -= ((koloni2->populasyon*1000/fark)/100);
+        koloni1->yemekStogu += ((koloni2->yemekStogu*1000/fark)/100);
+         koloni2->yemekStogu -= ((koloni2->yemekStogu*1000/fark)/100);
         koloni1->kazanma += 1;
         koloni2->kaybetme += 1;
     } else if (fark < 0) {
         // koloni kazanır
-        koloni1->populasyon -= ((koloni1->populasyon*(1000/fark))/100);
-        koloni2->yemekStogu += ((koloni1->yemekStogu*fark)/100);
+        koloni1->populasyon -= ((koloni1->populasyon*(1000/(-fark)))/100);
+        koloni2->yemekStogu += ((koloni1->yemekStogu*1000/(-fark))/100);
+        koloni1->yemekStogu -= ((koloni1->yemekStogu*(1000/(-fark)))/100);
         koloni1->kaybetme += 1;
         koloni2->kazanma += 1;
     } else {
         // berabere durum
         if (koloni1->populasyon > koloni2->populasyon) {
              koloni2->populasyon -= ((koloni2->populasyon*(5))/100);
-             koloni1->yemekStogu += ((koloni2->yemekStogu*fark)/100);
+             koloni1->yemekStogu += ((koloni2->yemekStogu*(10))/100);
+             koloni2->yemekStogu -= ((koloni2->yemekStogu*(10))/100);
+             
              koloni1->kazanma += 1;
              koloni2->kaybetme += 1;
            
         } else if (koloni1->populasyon < koloni2->populasyon) {
             koloni1->populasyon -= ((koloni1->populasyon*(5))/100);
-             koloni2->yemekStogu += ((koloni1->yemekStogu*fark)/100);
+             koloni2->yemekStogu += ((koloni1->yemekStogu*(10))/100);
+               koloni1->yemekStogu -= ((koloni1->yemekStogu*(10))/100);
              koloni1->kaybetme += 1;
              koloni2->kazanma += 1;
             
@@ -54,14 +59,16 @@ void Savas( struct Koloni* koloni1, struct Koloni* koloni2) {
             int rastgele = rand() % 2; // 0 veya 1
             if (rastgele == 0) {
                 koloni2->populasyon -= ((koloni2->populasyon*(5))/100);
-             koloni1->yemekStogu += ((koloni2->yemekStogu*fark)/100);
+                koloni1->yemekStogu += ((koloni2->yemekStogu*(10))/100);
+                 koloni2->yemekStogu -= ((koloni2->yemekStogu*(10))/100);
                 koloni1->kaybetme += 1;
                 koloni2->kazanma += 1;
             } else {
                  koloni1->populasyon -= ((koloni1->populasyon*(5))/100);
-                 koloni2->yemekStogu += ((koloni1->yemekStogu*fark)/100);
-                koloni1->kaybetme += 1;
-                koloni2->kazanma += 1;
+                 koloni2->yemekStogu += ((koloni1->yemekStogu*(10))/100);
+                 koloni1->yemekStogu -= ((koloni1->yemekStogu*(10))/100);
+                 koloni1->kaybetme += 1;
+                 koloni2->kazanma += 1;
             }
         }
     }

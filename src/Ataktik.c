@@ -3,9 +3,10 @@
 
 
 Ataktik* newAtaktik() {
+    int guckatsayi = Ataktikguc();
     Ataktik* this = (Ataktik*)malloc(sizeof(Ataktik));
      Taktik * tactic = newTaktik();
-    this->taktikguc = (tactic->value+(((tactic->value)*Ataktikguc())/100));;
+    this->taktikguc = (tactic->value+(((tactic->value)*guckatsayi)/100));;
     this->AtaktikGucGetir = &AtaktikGucGetir;
     return this;
 }

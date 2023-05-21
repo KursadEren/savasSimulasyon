@@ -1,5 +1,5 @@
-#ifndef ATAKTIK_H
-#define ATAKTIK_H
+#ifndef BTAKTIK_H
+#define BTAKTIK_H
 
 #include "Taktik.h"
 

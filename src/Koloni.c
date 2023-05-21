@@ -7,7 +7,7 @@ Koloni* newKoloniler(char* str, int* KoloniCount) {
     int count = koloniCountGetir(str);
     Koloni* koloniler = (Koloni*)malloc(count * sizeof(struct Koloni));
     char sembol = 'A';
-
+   
     char* token = strtok(str, " ");
     for (int i = 0; i < count; i++) {
         koloniler[i].populasyon = atoi(token);
@@ -17,6 +17,7 @@ Koloni* newKoloniler(char* str, int* KoloniCount) {
         koloniler[i].destroyColony = &destroyColony;
          koloniler[i].kazanma=0;
          koloniler[i].kaybetme=0;
+         koloniler[i].TurSonuPopulasyon = &TurSonuPopulasyon;
         token = strtok(NULL, " ");
     }
     *KoloniCount = count;
@@ -44,4 +45,8 @@ int koloniCountGetir(char* str) {
 void destroyColony(Koloni* koloni) {
     if (koloni == NULL) return;
     free(koloni);
+}
+
+void TurSonuPopulasyon(Koloni * koloni){
+    koloni->populasyon = koloni->populasyon + (koloni->populasyon *20 /100);
 }

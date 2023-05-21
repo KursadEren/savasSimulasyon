@@ -18,11 +18,11 @@ typedef struct Koloni {
 
     int (*koloniCountGetir)(char*p);
     void (*destroyColony)(struct Koloni* koloni);
-   
+   void (*TurSonuPopulasyon)(struct Koloni * koloni);
 } Koloni;
 
 Koloni* newKoloniler(char* str, int* KoloniCount); 
 int koloniCountGetir(char* str);
 void destroyColony(Koloni* koloni);
-
+void TurSonuPopulasyon(Koloni * koloni);
 #endif

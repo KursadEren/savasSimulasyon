@@ -4,8 +4,12 @@
 
 typedef struct Buret{
    
-   Uret* uret ;
-    
-};
+   int uretim;
+   struct Uret* uret ;
+    int (*BtipiUretim)();
+
+}Buret;
+Buret* ByeniUretim();
+int BtipiUretim();
 
 #endif
