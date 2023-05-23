@@ -11,7 +11,7 @@ Oyun* NewOyun() {
 
 void OyunBaslat() {
     char input[100];
-    printf("Boşluklu verileri girin: ");
+    printf("Bosluklu verileri girin: ");
     fgets(input, sizeof(input), stdin);
     input[strcspn(input, "\n")] = '\0';  // Satır sonu karakterini kaldır
     
@@ -21,6 +21,17 @@ void OyunBaslat() {
     int n = 1;
    
     while (1) {
+
+        int activeColonies = 0;  // Aktif koloni sayısını takip etmek için değişken tanımlandı
+        for (int i = 0; i < koloniCount; i++) {
+            if (koloniler[i].populasyon > 0 && koloniler[i].yemekStogu > 0) {
+                activeColonies++;  // Aktif kolonileri say
+            }
+        }
+
+        if (activeColonies <= 1) {
+            break;  // Eğer sadece 1 veya daha az aktif koloni kaldıysa döngüyü sonlandır
+        }
         printf("Tur Sayisi %d \n", n);
         printf("-------------------------------------------------\n");
         printf("Koloni  Populasyon   Yemek Stogu  kazanma   kaybetme\n\n");
@@ -46,16 +57,7 @@ void OyunBaslat() {
             }
         }
         
-        int activeColonies = 0;  // Aktif koloni sayısını takip etmek için değişken tanımlandı
-        for (int i = 0; i < koloniCount; i++) {
-            if (koloniler[i].populasyon > 0 && koloniler[i].yemekStogu > 0) {
-                activeColonies++;  // Aktif kolonileri say
-            }
-        }
-
-        if (activeColonies <= 1) {
-            break;  // Eğer sadece 1 veya daha az aktif koloni kaldıysa döngüyü sonlandır
-        }
+        
         
         for (int i = 0; i < koloniCount; i++) {
             if (koloniler[i].populasyon > 0 && koloniler[i].yemekStogu > 0) {
